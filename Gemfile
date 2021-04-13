@@ -38,6 +38,9 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   gem 'rack-mini-profiler', '~> 2.0'
 end
 
@@ -52,8 +55,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# CSS gem
-gem 'bulma', '~> 0.1.0'
-
 # Authentication gem
 gem 'devise', '~> 4.7', '>= 4.7.3'
+
+# CSS gem
+gem 'bulma-rails', '~> 0.9.1'
+
+# Simple form gem
+gem 'simple_form', '~> 5.1'
+
+# Gravatar gem
+gem 'gravatar_image_tag', '~> 1.2'
