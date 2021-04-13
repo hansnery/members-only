@@ -51,3 +51,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# CSS gem
+gem 'bulma', '~> 0.1.0'
+
+# Authentication gem
+gem 'devise', '~> 4.7', '>= 4.7.3'
