@@ -66,3 +66,6 @@ gem 'simple_form', '~> 5.1'
 
 # Gravatar gem
 gem 'gravatar_image_tag', '~> 1.2'
+
+# Gem for Windows
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
