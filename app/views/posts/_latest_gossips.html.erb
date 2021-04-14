@@ -1,6 +1,6 @@
 <div class="column">
   <nav class="panel">
-    <p class="panel-heading">Latest Gossips</p>
+    <p class="panel-heading">Latest Gossip</p>
   </nav>
   <div class="panel-block">
     <article class="media">
@@ -13,14 +13,20 @@
         <p>
           <% if @posts.size > 0 %>
             <% if user_signed_in? %>
-              <strong><%= @posts.last.user.name %></strong><br/>
-              <small><em>@<%= @posts.last.user.username %></em></small>
-            <% else %>  
-              <strong><em>Anonymous</em></strong><br/>
+              <p>
+                <strong><%= @posts.last.user.name %></strong>
+                <small><em>@<%= @posts.last.user.username %></em></small>
+              </p>
+            <% else %> 
+              <p>
+                <strong><em>Anonymous</em></strong><br/>  
+              </p>
             <% end %>
-            <p><%= @posts.last.body %></p>
+            <p>
+              <%= @posts.last.body %>
+            </p>
           <% else %>
-          <strong> We haven't heard anything yet.</strong>
+            <strong> We haven't heard anything yet.</strong>
           <% end %>
         </p>
       </div>

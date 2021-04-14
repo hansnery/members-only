@@ -2,42 +2,35 @@
   <nav class="panel">
     <p class="panel-heading">Top Gossip</p>
   </nav>
-  <div class="panel-block">
-    <article class="media">
-      <div class="media-left">
-        <figure class="image is-32x32">
-          <img src="https://bulma.io/images/placeholders/64x64.png">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p>
-          <% if @posts.size > 0 %>
+  <% @users = User.all %>
+  <% @users.each do |user| %>
+    <% next if user.posts.empty? %>
+    <div class="panel-block">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-32x32">
+            <img src="https://bulma.io/images/placeholders/64x64.png">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p>
             <% if user_signed_in? %>
-              <% User.all.each do |user| %>
-                <% if user.posts.count > 0 %>
-                  <p>
-                    <%= user.name %>
-                    <small><em>@<%= user.username %></em></small>
-                  </p>
-                  <p>
-                    <strong><%= user.posts.count %></strong>
-                    <% if user.posts.count > 1 %>
-                      Gossips
-                    <% else %>
-                      Gossip
-                    <% end %>
-                  </p>
-                <% end %>
-              <% end %>
-            <% else %>  
-              <strong><em>Anonymous</em></strong><br/>
+              <strong><%= user.name %></strong>
+              <small><em>@<%= user.username %></em></small>
+            <% else %>
+              <strong><em>Anonymous</em></strong>
             <% end %>
-            
-          <% else %>
-            <strong> Nobody has gossiped yet.</strong>
-          <% end %>
-        </p>
-      </div>
-    </article>
-  </div>
+          </p>
+          <p>
+            <strong><%= user.posts.count %></strong>
+            <% if user.posts.count > 1 %>
+              Gossips
+            <% else %>
+              Gossip
+            <% end %>
+          </p>
+        </div>
+      </article>
+    </div>
+  <% end %>
 </div>
