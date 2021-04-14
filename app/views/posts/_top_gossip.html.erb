@@ -11,41 +11,31 @@
       </div>
       <div class="media-content">
         <p>
-          <em>Anonymous</em><br/>
-          <strong>153</strong>
-          gossips
-        </p>
-      </div>
-    </article>
-  </div>
-  <div class="panel-block">
-    <article class="media">
-      <div class="media-left">
-        <figure class="image is-32x32">
-          <img src="https://bulma.io/images/placeholders/64x64.png">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p>
-          <em>Anonymous</em><br/>
-          <strong>132</strong>
-          gossips
-        </p>
-      </div>
-    </article>
-  </div>
-  <div class="panel-block">
-    <article class="media">
-      <div class="media-left">
-        <figure class="image is-32x32">
-          <img src="https://bulma.io/images/placeholders/64x64.png">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p>
-          <em>Anonymous</em><br/>
-          <strong>85</strong>
-          gossips
+          <% if @posts.size > 0 %>
+            <% if user_signed_in? %>
+              <% User.all.each do |user| %>
+                <% if user.posts.count > 0 %>
+                  <p>
+                    <%= user.name %>
+                    <small><em>@<%= user.username %></em></small>
+                  </p>
+                  <p>
+                    <strong><%= user.posts.count %></strong>
+                    <% if user.posts.count > 1 %>
+                      Gossips
+                    <% else %>
+                      Gossip
+                    <% end %>
+                  </p>
+                <% end %>
+              <% end %>
+            <% else %>  
+              <strong><em>Anonymous</em></strong><br/>
+            <% end %>
+            
+          <% else %>
+            <strong> Nobody has gossiped yet.</strong>
+          <% end %>
         </p>
       </div>
     </article>

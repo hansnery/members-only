@@ -11,8 +11,17 @@
       </div>
       <div class="media-content">
         <p>
-          <em>Anonymous</em><br/>
-          <strong><%= @posts.last.body %></strong>
+          <% if @posts.size > 0 %>
+            <% if user_signed_in? %>
+              <strong><%= @posts.last.user.name %></strong><br/>
+              <small><em>@<%= @posts.last.user.username %></em></small>
+            <% else %>  
+              <strong><em>Anonymous</em></strong><br/>
+            <% end %>
+            <p><%= @posts.last.body %></p>
+          <% else %>
+          <strong> We haven't heard anything yet.</strong>
+          <% end %>
         </p>
       </div>
     </article>
