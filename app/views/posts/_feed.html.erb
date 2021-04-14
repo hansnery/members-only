@@ -2,7 +2,11 @@
   <article class="media box">
     <figure class="media-left">
       <p class="image is-64x64">
-        <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+        <% if user_signed_in? %>
+          <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+        <% else %>
+          <img src="https://bulma.io/images/placeholders/64x64.png">
+        <% end %>
       </p>
     </figure>
     <div class="media-content">
@@ -14,7 +18,11 @@
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+            <% if user_signed_in? %>
+              <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+            <% else %>
+              <img src="https://bulma.io/images/placeholders/64x64.png">
+            <% end %>
           </figure>
         </div>
         <div class="media-content">
