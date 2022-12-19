@@ -1,24 +1,46 @@
-# README
+# The Odin Project
+# Project: Members Only
+This repository is an assignment part of the Odin Project`s curriculum.
+## The Assignment
+<p float = 'left'>
+  <img src="https://user-images.githubusercontent.com/19158296/208350763-8518ce13-1c59-4cf7-a53a-ad4ef6c0c24f.jpg" alt="Members-Only" width="500" height="200">
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to run this
 
-Things you may want to cover:
+## Locally
+Clone the repository into your local machine:
 
-* Ruby version
+```ruby
+$ git clone https://github.com/hansnery/members-only.git
+```
 
-* System dependencies
+Install the required gems:
 
-* Configuration
+```ruby
+$ bundle install
+```
 
-* Database creation
+Run migration:
 
-* Database initialization
+```ruby
+$ rails db:migrate
+```
 
-* How to run the test suite
+Populate the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+$ rails db:seed
+```
 
-* Deployment instructions
+Run the server:
 
-* ...
+```ruby
+$ rails server
+```
+
+Access the web application locally:
+
+```ruby
+localhost:3000
+```
